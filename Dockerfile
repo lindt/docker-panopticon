@@ -2,6 +2,8 @@ FROM ubuntu:16.04
 
 MAINTAINER think@hotmail.de
 
+ENV RUST_VERSION=1.14.0
+
 # TODO: uninstall dev packages
 RUN apt-get update \
  && apt-get install -y \
@@ -12,8 +14,11 @@ RUN apt-get update \
    qml-module-qtgraphicaleffects qml-module-qtqml-models2 \
    qml-module-qtquick-dialogs \
    qtbase5-private-dev pkg-config \
-   git build-essential cmake libqwt-qt5-dev curl \
- && curl https://sh.rustup.rs -sSf | sh \
+   git build-essential cmake libqwt-qt5-dev curl tar gzip \
+ && curl -sO https://static.rust-lang.org/dist/rust-$RUST_VERSION-x86_64-unknown-linux-gnu.tar.gz \
+ && tar -xzf rust-$RUST_VERSION-x86_64-unknown-linux-gnu.tar.gz \
+ && rm rust-*.tar.gz \
+ && ./rust-$RUST_VERSION-x86_64-unknown-linux-gnu/install.sh --without=rust-docs \
  && git clone https://github.com/das-labor/panopticon.git \
  && cd panopticon \
  && source $HOME/.cargo/env \
