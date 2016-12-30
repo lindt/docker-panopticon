@@ -21,7 +21,6 @@ RUN apt-get update \
  && ./rust-$RUST_VERSION-x86_64-unknown-linux-gnu/install.sh --without=rust-docs \
  && git clone https://github.com/das-labor/panopticon.git \
  && cd panopticon \
- && source $HOME/.cargo/env \
  && cargo build --release \
  && apt-get auto-remove -y curl
 
