@@ -23,6 +23,7 @@ docker run -ti -e DISPLAY \
   think/panopticon
 ```
 This opens the Panopticon Gui within this folder. Then load your binary.
+In case the current folder is not opened, go to `/work`. `/work` is your current folder mounted into the Docker Container.
 
 ## References
 
