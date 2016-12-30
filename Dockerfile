@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER think@hotmail.de
 
-ENV RUST_VERSION=1.14.0
+ENV RUST_VERSION=1.13.0
 
 # TODO: uninstall dev packages
 RUN apt-get update \
